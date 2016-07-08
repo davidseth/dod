@@ -6,8 +6,8 @@ public class CameraWobble : MonoBehaviour {
     public AllScripts allScript;
     public Transform cam;
     public float intensity;
-    private float increase = 0.015f, speed = 5;
-    public bool stopping;
+    private float speed = 5;
+    public bool stopping, decreasing;
 
 
     // Use this for initialization
@@ -18,10 +18,17 @@ public class CameraWobble : MonoBehaviour {
 
     void LateUpdate() {
         if (!stopping){
+            if(decreasing) {
+                if (intensity >= 0.7f) {
+                    intensity = intensity - intensity * Time.deltaTime * 0.03f;
+                } else {
+                    decreasing = false;
+                }
+            }
             if (intensity <= 0.9) {
                 intensity = intensity + intensity * Time.deltaTime * 0.03f;
             } else {
-                //ded
+                allScript.gameManager.Ded();
             }
         } else {//if stopping
             intensity = Mathf.Lerp(intensity, 0, Time.deltaTime);
@@ -30,4 +37,5 @@ public class CameraWobble : MonoBehaviour {
 
         transform.rotation = Quaternion.Lerp(cam.rotation, transform.rotation * Quaternion.Euler(Mathf.Sin(Time.time * speed * 0.6f) * 1.6f, Mathf.Sin(Time.time * speed * 0.8f) * 1.6f, Mathf.Sin(Time.time * speed)*2), intensity);
     }
+
 }

@@ -7,6 +7,8 @@ public class AllScripts : MonoBehaviour {
     public SlowMoScript slowMoScript;
     public Camera mainCam;
     public GameManager gameManager;
+    public CharacterController characterController;
+    public Rigidbody firstPersonRigid;
 
 	// Use this for initialization
 	void Start () {

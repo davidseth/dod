@@ -22,10 +22,13 @@ public class SlowMoScript : MonoBehaviour {
             } else if (intensity > 0.1) {
                 intensity -= Time.deltaTime * 0.085f;
             } else {
-                //ded
+                allScript.gameManager.Ded();
+                stopping = true;
             }
         } else {//if stopping
-            intensity = Mathf.Lerp(intensity, 1, Time.deltaTime);
+            if (intensity < 1f) {
+                intensity = Mathf.Lerp(intensity, 1.1f, Time.deltaTime);
+            }
         }
         Time.timeScale = intensity;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;

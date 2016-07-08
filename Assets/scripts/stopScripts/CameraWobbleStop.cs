@@ -22,7 +22,7 @@ public class CameraWobbleStop : MonoBehaviour {
                         Debug.Log(hit.distance);
                         //play relived sound
                         allScripts.cameraWobble.stopping = true;
-                        allScripts.gameManager.DrugTaken(drugOrder);
+                        allScripts.gameManager.DrugTaken(drugOrder, gameObject);
                         Destroy(gameObject);
                     }
                 }

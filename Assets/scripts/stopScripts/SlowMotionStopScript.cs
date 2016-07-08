@@ -21,7 +21,7 @@ public class SlowMotionStopScript : MonoBehaviour {
                     if(hit.distance < 2) {
                         //play relived sound
                         allScripts.slowMoScript.stopping = true;
-                        allScripts.gameManager.DrugTaken(drugOrder);
+                        allScripts.gameManager.DrugTaken(drugOrder, gameObject);
                         Destroy(gameObject);
                     }
                 }

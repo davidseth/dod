@@ -25,7 +25,7 @@ public class CameraWobble : MonoBehaviour {
                     decreasing = false;
                 }
             }
-            if (intensity <= 0.9f) {
+            if (intensity <= 0.7f) {
                 intensity = intensity + intensity * Time.deltaTime * 0.03f;
             } else {
                 allScript.gameManager.Ded();

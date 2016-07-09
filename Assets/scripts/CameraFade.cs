@@ -99,7 +99,7 @@ public class CameraFade : MonoBehaviour
             if (FadeImg.color.a >= 0.95f)
             {
                 // ... reload the level
-                SceneManager.LoadScene(sceneName);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
                 yield break;
             }
             else

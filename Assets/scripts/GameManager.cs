@@ -6,14 +6,17 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class GameManager : MonoBehaviour {
 
     public AllScripts allScript;
-    public FirstPersonController fpc;
+    FirstPersonController fpc;
     CameraFade cameraFade;
     public bool[] drugs;
     private bool ded;
 
     // Use this for initialization
     void Start() {
+        Debug.Log("hello ");
+
         fpc = FindObjectOfType<FirstPersonController>();
+        
         cameraFade = GameObject.FindObjectOfType<CameraFade>();
     }
 

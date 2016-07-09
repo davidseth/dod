@@ -7,12 +7,19 @@ public class GameManager : MonoBehaviour {
 
     public AllScripts allScript;
     public FirstPersonController fpc;
+    CameraFade cameraFade;
     public bool[] drugs;
     private bool ded;
+
+    void Awake()
+    {
+        
+    }
 
 	// Use this for initialization
 	void Start () {
         fpc = FindObjectOfType<FirstPersonController>();
+        cameraFade = GameObject.FindObjectOfType<CameraFade>();
     }
 	
 	// Update is called once per frame
@@ -68,5 +75,6 @@ public class GameManager : MonoBehaviour {
         }
 
         //fade to black
+        cameraFade.EndScene("main");
     }
 }

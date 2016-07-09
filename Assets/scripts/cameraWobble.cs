@@ -20,12 +20,12 @@ public class CameraWobble : MonoBehaviour {
         if (!stopping){
             if(decreasing) {
                 if (intensity >= 0.7f) {
-                    intensity = intensity - intensity * Time.deltaTime * 0.03f;
+                    intensity = intensity - intensity * Time.deltaTime * 0.09f;
                 } else {
                     decreasing = false;
                 }
             }
-            if (intensity <= 0.9) {
+            if (intensity <= 0.9f) {
                 intensity = intensity + intensity * Time.deltaTime * 0.03f;
             } else {
                 allScript.gameManager.Ded();

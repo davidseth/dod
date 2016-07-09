@@ -39,7 +39,20 @@ public class GameManager : MonoBehaviour {
                 return;
             }
         }
-        Debug.Log("all good");
+
+        for (int i = 0; i < drugs.Length; i++) {
+            if (drugs[i] == true) {
+                return;
+            }
+        }
+        if(allScript.cameraWobble != null)
+            allScript.cameraWobble.decreasing = true;
+        if (allScript.slowMoScript != null)
+            allScript.slowMoScript.decreasing = true;
+        //no more effects
+        //fade to black
+        //finish level
+
     }
 
     public void Ded() {

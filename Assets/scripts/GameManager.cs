@@ -59,8 +59,15 @@ public class GameManager : MonoBehaviour {
         //win
         //no more effects
         //fade to black
-        //finish level
+        allScript.bloom.bloomThreshold = 0.2f;
+        allScript.bloom.bloomIntensity = 2f;
+        StartCoroutine("LoadingNextLevel");
+    }
 
+    IEnumerator LoadingNextLevel() {
+        cameraFade.EndScene("main");
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
     }
 
     public void Ded() {

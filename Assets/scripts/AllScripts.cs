@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.ImageEffects;
 
 public class AllScripts : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class AllScripts : MonoBehaviour {
     public GameManager gameManager;
     public CharacterController characterController;
     public Rigidbody firstPersonRigid;
+    public Bloom bloom;
 
 	// Use this for initialization
 	void Start () {

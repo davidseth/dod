@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 2e12afe3ab1d34847abe2f819dd6fe38
-timeCreated: 1468026556
+guid: a5246c982ddb6bc4f94ef8c09ffe5a48
+timeCreated: 1468045301
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -13,7 +13,7 @@ ModelImporter:
     3300000: pillBottle:pillBottle_open
     4300000: pillBottle:pillBottle_open
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:

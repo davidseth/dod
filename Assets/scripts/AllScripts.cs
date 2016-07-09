@@ -11,6 +11,7 @@ public class AllScripts : MonoBehaviour {
     public CharacterController characterController;
     public Rigidbody firstPersonRigid;
     public Bloom bloom;
+    public CameraFade cameraFade;
 
 	// Use this for initialization
 	void Start () {

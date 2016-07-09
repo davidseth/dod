@@ -49,12 +49,13 @@ public class GameManager : MonoBehaviour {
                 return;
             }
         }
-
+        Debug.Log("might noit win");
         for (int i = 0; i < drugs.Length; i++) {
-            if (drugs[i] == true) {
+            if (drugs[i] == false) {
                 return;
             }
         }
+        Debug.Log("might win");
         if (allScript.cameraWobble != null)
             allScript.cameraWobble.decreasing = true;
         if (allScript.slowMoScript != null)
@@ -62,12 +63,14 @@ public class GameManager : MonoBehaviour {
         //win
         //no more effects
         //fade to black
+        Debug.Log("win");
         allScript.bloom.bloomThreshold = 0.2f;
         allScript.bloom.bloomIntensity = 2f;
         StartCoroutine("LoadingNextLevel");
     }
 
     IEnumerator LoadingNextLevel() {
+        yield return new WaitForSeconds(2);
         cameraFade.EndScene("main");
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);

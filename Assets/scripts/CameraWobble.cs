@@ -5,7 +5,7 @@ public class CameraWobble : MonoBehaviour {
 
     public AllScripts allScript;
     public Transform cam;
-    public float intensity;
+    public float intensity, increaseSpeed = 0.05f;
     private float speed = 5;
     public bool stopping, decreasing;
 
@@ -25,8 +25,8 @@ public class CameraWobble : MonoBehaviour {
                     decreasing = false;
                 }
             }
-            if (intensity <= 0.7f) {
-                intensity = intensity + intensity * Time.deltaTime * 0.03f;
+            if (intensity <= 0.95f) {
+                intensity = intensity + intensity * Time.deltaTime * increaseSpeed;
             } else {
                 allScript.gameManager.Ded();
             }

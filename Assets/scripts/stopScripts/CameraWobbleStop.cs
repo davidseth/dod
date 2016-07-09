@@ -19,7 +19,6 @@ public class CameraWobbleStop : MonoBehaviour {
             if (Physics.Raycast(ray, out hit)) { 
                 if (hit.collider.gameObject == gameObject) {
                     if(hit.distance < 2) {
-                        Debug.Log(hit.distance);
                         //play relived sound
                         allScripts.cameraWobble.stopping = true;
                         allScripts.gameManager.DrugTaken(drugOrder, gameObject);

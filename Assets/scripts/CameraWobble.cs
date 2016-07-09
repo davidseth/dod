@@ -32,7 +32,6 @@ public class CameraWobble : MonoBehaviour {
             }
         } else {//if stopping
             intensity = Mathf.Lerp(intensity, 0, Time.deltaTime);
-            //if()
         }
 
         transform.rotation = Quaternion.Lerp(cam.rotation, transform.rotation * Quaternion.Euler(Mathf.Sin(Time.time * speed * 0.6f) * 1.6f, Mathf.Sin(Time.time * speed * 0.8f) * 1.6f, Mathf.Sin(Time.time * speed)*2), intensity);

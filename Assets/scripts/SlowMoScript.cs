@@ -16,7 +16,11 @@ public class SlowMoScript : MonoBehaviour {
     void Update() {
         if (!stopping) {
             if (decreasing) {
-
+                if (intensity <= 0.3f) {
+                    intensity = intensity + intensity * Time.deltaTime * 0.12f;
+                } else {
+                    decreasing = false;
+                }
             } else {
                 if (intensity > 0.5f) {
                     intensity -= Time.deltaTime * 0.025f;

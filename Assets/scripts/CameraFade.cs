@@ -7,9 +7,26 @@ public class CameraFade : MonoBehaviour
 {
     public GameManager gameManager;
     public Image FadeImg;
-    public float fadeSpeed = 1.5f;
+    public float fadeSpeed = 5f;
     public bool sceneStarting = true;
 
+    void OnEnable()
+    {
+        Messenger<string>.AddListener("Player", OnReact);
+    }
+
+    void OnDisable()
+    {
+        Messenger<string>.RemoveListener("Player", OnReact);
+    }
+
+    void OnReact(string message)
+    {
+        if (message == "dead")
+        {
+            EndScene("main");
+        }
+    }
 
     void Awake()
     {

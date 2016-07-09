@@ -11,21 +11,16 @@ public class GameManager : MonoBehaviour {
     public bool[] drugs;
     private bool ded;
 
-    void Awake()
-    {
-        
-    }
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         fpc = FindObjectOfType<FirstPersonController>();
         cameraFade = GameObject.FindObjectOfType<CameraFade>();
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    // Update is called once per frame
+    void Update() {
+
+    }
 
     public void NextLevel() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -33,9 +28,14 @@ public class GameManager : MonoBehaviour {
 
     public void DrugTaken(int drugIndex, GameObject pill) {
         drugs[drugIndex] = true;
-        for(int i = 0; i < drugIndex; i++) {
-            if(drugs[i] == false) {
+        for (int i = 0; i < drugIndex; i++) {
+            if (drugs[i] == false) {
                 if (pill.name == "WobblePill") {
+                    Debug.Log("uh oh" + pill.name);
+                    allScript.cameraWobble.intensity = 0.8f;
+                    allScript.cameraWobble.stopping = false;
+                    allScript.cameraWobble.decreasing = true;
+                } else if (pill.name == "SlowMoPill") {
                     Debug.Log("uh oh" + pill.name);
                     allScript.cameraWobble.intensity = 0.8f;
                     allScript.cameraWobble.stopping = false;
@@ -52,10 +52,11 @@ public class GameManager : MonoBehaviour {
                 return;
             }
         }
-        if(allScript.cameraWobble != null)
+        if (allScript.cameraWobble != null)
             allScript.cameraWobble.decreasing = true;
         if (allScript.slowMoScript != null)
             allScript.slowMoScript.decreasing = true;
+        //win
         //no more effects
         //fade to black
         //finish level
@@ -71,10 +72,8 @@ public class GameManager : MonoBehaviour {
             fpc.GetComponent<CharacterController>().enabled = false;
             fpc.GetComponent<FirstPersonController>().enabled = false;
             body.AddTorque(vel + new Vector3(20, 0, 0));
-            Debug.Log(vel);
+            //fade to black
+            cameraFade.EndScene("main");
         }
-
-        //fade to black
-        cameraFade.EndScene("main");
     }
 }

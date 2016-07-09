@@ -15,13 +15,14 @@ public class CameraFade : MonoBehaviour
     {
         FadeImg.rectTransform.localScale = new Vector2(Screen.width, Screen.height);
         gameManager = GameObject.FindObjectOfType<GameManager>();
+        FadeImg.color = Color.black;
     }
 
     void Update()
     {
 
         // If the scene is starting...
-        if (Input.anyKey)
+        if (Input.anyKey && sceneStarting)
         {
             Debug.Log("A key or mouse click has been detected");
 
@@ -29,7 +30,7 @@ public class CameraFade : MonoBehaviour
             StartScene();
         }
 
-        if(Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             gameManager.Ded();
         }

@@ -35,19 +35,9 @@ public class DrawerInteraction : MonoBehaviour {
         }
         if (lerping) {
             if (opening) {
-                if (transform.localPosition.z >= endPos.z - 0.005f) {
-                    lerping = false;
-                    opening = false;
-                } else {
-                    transform.localPosition = Vector3.Lerp(transform.localPosition, endPos, Time.deltaTime * 3);
-                }
+                transform.localPosition = Vector3.Lerp(transform.localPosition, endPos, Time.deltaTime * 3);
             } else {
-                if (transform.localPosition.z <= startPos.z + 0.005f) {
-                    lerping = false;
-                    opening = true;
-                } else {
-                    transform.localPosition = Vector3.Lerp(transform.localPosition, startPos, Time.deltaTime * 3);
-                }
+                transform.localPosition = Vector3.Lerp(transform.localPosition, startPos, Time.deltaTime * 3);
             }
         }
     }

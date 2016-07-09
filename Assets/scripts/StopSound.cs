@@ -3,6 +3,8 @@ using System.Collections;
 
 public class StopSound : MonoBehaviour {
 
+    public float maxVolume;
+
 	// Use this for initialization
 	void Start () {
         GetComponent<AudioSource>().Play();
@@ -16,10 +18,10 @@ public class StopSound : MonoBehaviour {
             if (Physics.Raycast(ray, out hit)) {
                 if (hit.collider.gameObject == gameObject) {
                     if (hit.distance < 2) {
-                        if(GetComponent<AudioSource>().volume == 1)
+                        if(GetComponent<AudioSource>().volume == maxVolume)
                             GetComponent<AudioSource>().volume = 0;
                         else
-                            GetComponent<AudioSource>().volume = 1;
+                            GetComponent<AudioSource>().volume = maxVolume;
                     }
                 }
             }

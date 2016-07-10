@@ -22,7 +22,7 @@ public class CreepyDoorScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if (other.tag == "Player" && !hasPlayed) {
-            int intensity = SceneManager.GetActiveScene().buildIndex / 2;
+            int intensity = SceneManager.GetActiveScene().buildIndex;
             Debug.Log(intensity);
             knockAudio.clip = knocks[intensity];
             manAudio.clip = creepyManSounds[intensity];

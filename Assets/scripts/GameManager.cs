@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void DrugTaken(int drugIndex, GameObject pill) {
+        Debug.Log("eaten pill");
         drugs[drugIndex] = true;
         for (int i = 0; i < drugIndex; i++) {
             if (drugs[i] == false) {

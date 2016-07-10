@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class StopSound : MonoBehaviour {
 
@@ -7,7 +8,7 @@ public class StopSound : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        GetComponent<AudioSource>().Play();
+
 	}
 	
 	// Update is called once per frame
@@ -18,10 +19,8 @@ public class StopSound : MonoBehaviour {
             if (Physics.Raycast(ray, out hit)) {
                 if (hit.collider.gameObject == gameObject) {
                     if (hit.distance < 2) {
-                        if(GetComponent<AudioSource>().volume == maxVolume)
+                        if (GetComponent<AudioSource>().volume >= 0.1f)
                             GetComponent<AudioSource>().volume = 0;
-                        else
-                            GetComponent<AudioSource>().volume = maxVolume;
                     }
                 }
             }

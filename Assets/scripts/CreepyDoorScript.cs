@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class CreepyDoorScript : MonoBehaviour {
 
-    public AllScripts allSCripts;
     private bool hasPlayed;
     public AudioClip[] knocks;
     public AudioClip[] creepyManSounds;

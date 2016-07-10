@@ -95,7 +95,7 @@ public class CameraFade : MonoBehaviour {
             // If the screen is almost black...
             if (FadeImg.color.a >= 0.95f) {
                 // ... reload the level
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
                 yield break;
             } else {
                 yield return null;

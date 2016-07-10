@@ -4,7 +4,7 @@ using System.Collections;
 public class SlowMoScript : MonoBehaviour {
 
     public AllScripts allScript;
-    public float intensity;
+    public float intensity, increaseSpeed =1;
     public bool stopping, decreasing;
 
 
@@ -23,11 +23,11 @@ public class SlowMoScript : MonoBehaviour {
                 }
             } else {
                 if (intensity > 0.5f) {
-                    intensity -= Time.deltaTime * 0.025f;
+                    intensity -= Time.deltaTime * 0.04f * increaseSpeed;
                 } else if (intensity > 0.2f) {
-                    intensity -= Time.deltaTime * 0.045f;
+                    intensity -= Time.deltaTime * 0.08f * increaseSpeed;
                 } else if (intensity > 0.1) {
-                    intensity -= Time.deltaTime * 0.085f;
+                    intensity -= Time.deltaTime * 0.16f * increaseSpeed;
                 } else {
                     allScript.gameManager.Ded();
                     stopping = true;
@@ -40,5 +40,7 @@ public class SlowMoScript : MonoBehaviour {
         }
         Time.timeScale = intensity;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
+        allScript.mainMusic.pitch = Time.timeScale;
+        allScript.alarm.pitch = Time.timeScale;
     }
 }
